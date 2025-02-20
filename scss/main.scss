@@ -61,13 +61,9 @@ $gird-gutter-width: 30px;
     margin-right: calc(var(--grid-gutter-x) * 0.5 * -1);
 
     &[class*="row-col-"] > *,
-    [class*="col-"] {
-        @extend %gutter-padding;
-        flex: 0 0 auto;
-    }
-
     > * {
         margin-top: calc(var(--grid-gutter-y));
+        @extend %gutter-padding;
     }
 }
 
@@ -90,6 +86,7 @@ $gird-gutter-width: 30px;
     @for $i from 1 through $gird-column * 0.5 {
         .row-col#{$infix}-#{$i} > * {
             width: math.div(100%, $i);
+            flex: 0 0 auto;
         }
     }
 }
@@ -98,6 +95,7 @@ $gird-gutter-width: 30px;
     @for $i from 1 through $gird-column {
         .col#{$infix}-#{$i} {
             width: math.div(100%, $gird-column) * $i;
+            flex: 0 0 auto;
         }
     }
 }
